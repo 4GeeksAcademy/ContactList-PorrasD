@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import injectContext from "./store/appContext.js";
 import Contact from "./views/Contact.jsx";
 import AddContact from "./views/AddContact.jsx";
+import EditContact from "./views/EditContact.jsx";
 
 const Layout = () => {
 	const basename = process.env.BASENAME || "";

@@ -24,6 +24,7 @@ const Contact = () => {
     actions.setCurrentName(agendaName);
     navigate("/addcontact");
   }
+ 
   useEffect(() => {
     handlerGetContacts();
   }, []);

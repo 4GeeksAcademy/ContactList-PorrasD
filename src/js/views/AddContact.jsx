@@ -31,37 +31,39 @@ const AddContact = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {/* <h1>{id ? "Edit Contact" : "Add Contact"}</h1> */}
-      <input
+    <form className="container d-flex flex-column justify-content-start align-items-center mb-5" style={{
+      height: '700px', width: '80%'
+  }} onSubmit={handleSubmit}>
+    
+      <input className="bg-light form-control" style={{ width: '500px' }}
         type="text"
         name="name"
         placeholder="Name"
         value={contact.name}
         onChange={handleChange}
       />
-      <input
+      <input  className="bg-light form-control" style={{ width: '500px' }}
         type="email"
         name="email"
         placeholder="Email"
         value={contact.email}
         onChange={handleChange}
       />
-      <input
+      <input className="bg-light form-control" style={{ width: '500px' }}
         type="text"
         name="phone"
         placeholder="Phone"
         value={contact.phone}
         onChange={handleChange}
       />
-      <input
+      <input className="bg-light form-control" style={{ width: '500px' }}
         type="text"
         name="address"
         placeholder="Address"
         value={contact.address}
         onChange={handleChange}
       />
-      <button type="submit">Save</button>
+      <button className="btn btn-lg btn-primary" type="submit"  style={{ width: '500px' }} type="submit">Save</button>
     </form>
   );
 };

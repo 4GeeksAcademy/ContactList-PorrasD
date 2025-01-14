@@ -71,27 +71,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.error("Error adding contact:", error);
 				}
 			},
-			updateContact: async (id, contact) => {
+
+			updateContact: async (id, payload) => {
 				try {
-					const response = await fetch(`https://playground.4geeks.com/contact/${id}`, {
+					const response = await fetch(`https://playground.4geeks.com/contact/agendas/dannyp/contacts/${id}`, {
 						method: "PUT",
 						headers: { "Content-Type": "application/json" },
-						body: JSON.stringify(contact),
+						body: JSON.stringify(payload),
 					});
-					if (response.ok) {
-						getActions().fetchContacts();
-					}
-				} catch (error) {
-					console.error("Error updating contact:", error);
-				}
+					if (!response.ok) {
+                        throw new Error("No se pudo editar el contacto");
+                    }
+                    const store = getStore();
+                    const updatedContact = store.contacts.find((contact) => contact.id == id);
+                    setStore({ ...store, contacts: [...store.contacts, updatedContact] });
+                } catch (error) {
+                    console.error(error);
+                }
 			},
-			deleteContact: async () => {
+			deleteContact: async (agendaName, id) => {
+				let store= getStore()
 				try {
-					const response = await fetch(`https://playground.4geeks.com/contact/agendas/${currentName}/contacts/${contact.id}`, {
+					const response = await fetch(`https://playground.4geeks.com/contact/agendas/${agendaName}/contacts/${id}`, {
 						method: "DELETE",
 					});
 					if (response.ok) {
-						getActions().fetchContacts();
+						getActions().fetchContacts(agendaName);
 					}
 				} catch (error) {
 					console.error("Error deleting contact:", error);
