@@ -24,7 +24,8 @@ const ContactCard = ({ contact }) => {
 
   return (
     <div className="card mb-3" key={contact.id} style={{
-      width: '540px'    }}>
+      width: '540px'
+    }}>
       <div className="row g-0">
         <div className="col-md-4">
           <img src="https://picsum.photos/170/170/" className="img-fluid rounded-circle p-3" alt="Aquí debería haber una foto :)" />
@@ -36,13 +37,14 @@ const ContactCard = ({ contact }) => {
           <p>Phone: {contact.phone}</p>
           <p>Address: {contact.address}</p>
           <button className="btn btn-dark" onClick={handleDelete}>Delete</button>
-          <Link to={"/editContact/" + contact.id} className="btn btn-link p-0 me-3">
-            Editar
+          <Link to={`/edit-contact/${contact.id}`}>
+            <button>Edit</button>
           </Link>
+
         </div>
-        </div>
-        </div>
-        );
+      </div>
+    </div>
+  );
 };
 
-        export default ContactCard;
+export default ContactCard;

@@ -63,7 +63,7 @@ const AddContact = () => {
         value={contact.address}
         onChange={handleChange}
       />
-      <button className="btn btn-lg btn-primary" type="submit"  style={{ width: '500px' }} type="submit">Save</button>
+      <button className="btn btn-lg btn-primary"  style={{ width: '500px' }} type="submit">Save</button>
     </form>
   );
 };
